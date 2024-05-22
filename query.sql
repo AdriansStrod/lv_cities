@@ -112,18 +112,15 @@ VALUES
 ,('Viļāni', 1928, 2831, 'Rēzeknes novads')
 ,('Zilupe', 1931, 1369, 'Ludzas novads');
 -- 3. Atlasīt tikai nosaukumu un novadu kolonnas (SELECT)
-SELECT * FROM cities;
-SELECT title from cities;
-SELECT region from cities;
+SELECT title, region  from cities;
+
 -- 7. Saskaitīt kopējo latvijas pilsētu skaitu (COUNT)
-SELECT COUNT(*)
-FROM cities;
+Select Sum(population) from cities;
 -- 5. Atlasīt pilsētas ar mazāk vai vienādas ar 3501 iedzīvotāju skaitu (WHERE)
--- SELECT population WHERE MIN(3501) FROM cities;
+SELECT title WHERE population <= 3501;
 -- 6. Atlasīt top 10 lielākas pilsētas pēc iedzīvotāju skaita (LIMIT, ORDER BY)
 SELECT title,population FROM cities ORDER BY population DESC LIMIT 10;
 -- 10.Atlasīt kopēju iedzīvotāji skaitu pēc novadiem (GROUP BY, COUNT)
-SELECT title, COUNT population GROUP BY region FROM cities;
-
-
-
+SELECT title,population GROUP BY region FROM cities;
+-- 4. Atlasīt pilsētas kuras ir vecākas par 100 gadiem (WHERE)
+SELECT title,FROM cities where year < 1924;
